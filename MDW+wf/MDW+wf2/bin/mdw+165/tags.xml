@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:18 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>A00000000000000000000020</epc>
+  <rssi>45.599998474121094</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:18 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>FAAA00020160418042400318</epc>
+  <rssi>46.400001525878906</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:21 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>FAA29052014000000000108B</epc>
+  <rssi>53.599998474121094</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:21 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>FAA290520140000000001090</epc>
+  <rssi>55.200000762939453</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:21 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>FAA29052014000000000108F</epc>
+  <rssi>58.400001525878906</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:21 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>FAA29052014000000000108E</epc>
+  <rssi>48</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:22 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>FAA29052014000000000108C</epc>
+  <rssi>52.799999237060547</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:22 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>FAA29052014000000000108D</epc>
+  <rssi>53.599998474121094</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:25 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>FAA290520140000000001091</epc>
+  <rssi>51.200000762939453</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:26 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>E2003411B802010971159352</epc>
+  <rssi>48.799999237060547</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:37 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>200000000000000000000005</epc>
+  <rssi>42.400001525878906</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:39 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>00000000000000000000002D</epc>
+  <rssi>47.200000762939453</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:40 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>FAAA00020160523104510AB8</epc>
+  <rssi>44</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:42 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>FAA290520140000000001092</epc>
+  <rssi>48</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:42 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>FAA290520140000000001094</epc>
+  <rssi>52</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:42 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>FAA290520140000000001093</epc>
+  <rssi>55.200000762939453</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:42 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>A00000000000000000000020</epc>
+  <rssi>50.400001525878906</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:42 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>FAA2905201400000000010FF</epc>
+  <rssi>50.400001525878906</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:42 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>FAA2905201400000000010FE</epc>
+  <rssi>50.400001525878906</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:49 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>E2003411B802010971159352</epc>
+  <rssi>43.200000762939453</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:49 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>20000000000000000000004C</epc>
+  <rssi>39.200000762939453</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:49 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>00000000000000000000002D</epc>
+  <rssi>51.200000762939453</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:49 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>FAAA00020160823011520001</epc>
+  <rssi>56</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:57 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>FAAA00020160823011520000</epc>
+  <rssi>49.599998474121094</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>
+<?xml version="1.0" encoding="utf-16"?>
+<Tag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <timestamp>23/08/2016 08:31:57 p. m.</timestamp>
+  <ip>192.168.2.203</ip>
+  <epc>200000000000000000000005</epc>
+  <rssi>44.799999237060547</rssi>
+  <direction>-1</direction>
+  <erasetime>5</erasetime>
+</Tag>

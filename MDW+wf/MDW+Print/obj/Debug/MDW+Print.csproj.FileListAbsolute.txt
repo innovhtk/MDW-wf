@@ -1,0 +1,15 @@
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+Print\bin\Debug\MDW+Print.exe.config
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+Print\bin\Debug\MDW+Print.exe
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+Print\bin\Debug\MDW+Print.pdb
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+Print\obj\Debug\MDW+Print.csprojResolveAssemblyReference.cache
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+Print\obj\Debug\Interop.NiceLabel5WR.dll
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+Print\obj\Debug\MDW+Print.csproj.ResolveComReference.cache
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+Print\obj\Debug\MDW_Print.Print.resources
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+Print\obj\Debug\MDW_Print.Properties.Resources.resources
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+Print\obj\Debug\MDW+Print.csproj.GenerateResource.Cache
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+Print\obj\Debug\MDW+Print.exe
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+Print\obj\Debug\MDW+Print.pdb
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf2\bin\Debug\MDW+Print.exe.config
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf2\bin\Debug\MDW+Print.exe
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf2\bin\Debug\MDW+Print.pdb
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+Print\obj\Debug\MDW_Print.Login.resources

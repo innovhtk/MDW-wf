@@ -1,0 +1,46 @@
+c:\users\eleazar\documents\visual studio 2015\Projects\MDW+wf\MDW+wf\bin\Debug\MDW+wf.exe.config
+c:\users\eleazar\documents\visual studio 2015\Projects\MDW+wf\MDW+wf\bin\Debug\MDW+wf.exe
+c:\users\eleazar\documents\visual studio 2015\Projects\MDW+wf\MDW+wf\bin\Debug\MDW+wf.pdb
+c:\users\eleazar\documents\visual studio 2015\Projects\MDW+wf\MDW+wf\obj\Debug\MDW+wf.csprojResolveAssemblyReference.cache
+c:\users\eleazar\documents\visual studio 2015\Projects\MDW+wf\MDW+wf\obj\Debug\MDW_wf.Properties.Resources.resources
+c:\users\eleazar\documents\visual studio 2015\Projects\MDW+wf\MDW+wf\obj\Debug\MDW+wf.csproj.GenerateResource.Cache
+c:\users\eleazar\documents\visual studio 2015\Projects\MDW+wf\MDW+wf\obj\Debug\MDW+wf.exe
+c:\users\eleazar\documents\visual studio 2015\Projects\MDW+wf\MDW+wf\obj\Debug\MDW+wf.pdb
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf\bin\Debug\HTKLibrary.Readers.dll
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf\bin\Debug\HTKLibrary.Readers.pdb
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf\obj\Debug\MDW_wf.Start.resources
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf\bin\Debug\MDW+wf.exe.manifest
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf\bin\Debug\MDW+wf.application
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf\obj\Debug\MDW+wf.exe.manifest
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf\obj\Debug\MDW+wf.application
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\bin\Debug\MDW+wf.exe.config
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\obj\Debug\MDW+wf.exe
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\obj\Debug\MDW+wf.pdb
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\obj\Debug\MDW+wf.csprojResolveAssemblyReference.cache
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\obj\Debug\MDW_wf.Start.resources
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\obj\Debug\MDW_wf.Properties.Resources.resources
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\obj\Debug\MDW+wf.csproj.GenerateResource.Cache
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\bin\Debug\MDW+wf.exe.manifest
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\bin\Debug\MDW+wf.application
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\bin\Debug\MDW+wf.exe
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\bin\Debug\MDW+wf.pdb
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\bin\Debug\HTKLibrary.Readers.pdb
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\obj\Debug\MDW+wf.exe.manifest
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\obj\Debug\MDW+wf.application
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\bin\Debug\HTKLibrary.Readers.dll
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\bin\Debug\HTKLibrary.Classes.Net35.dll
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\bin\Debug\HTKLibrary.Comunications.Net35.dll
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\bin\Debug\HTKLibrary.Classes.Net35.pdb
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\bin\Debug\HTKLibrary.Comunications.Net35.pdb
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf - copia\MDW+wf\obj\Debug\MDW_wf.Login.resources
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf\bin\Debug\HTKLibrary.Classes.Net35.dll
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf\bin\Debug\HTKLibrary.Comunications.Net35.dll
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf\bin\Debug\HTKLibrary.Classes.Net35.pdb
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf\bin\Debug\HTKLibrary.Comunications.Net35.pdb
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf\obj\Debug\MDW_wf.Login.resources
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW+wf\MDW+wf\bin\Debug\ES\System.Data.SqlServerCe.resources.dll
