@@ -44,7 +44,7 @@ namespace MDW_wf.Controller
             try
             {
                 string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-                XML<ConfigManager> xml = new XML<ConfigManager>(path +"\\config.xml");
+                Connectivity.XML<ConfigManager> xml = new Connectivity.XML<ConfigManager>(path +"\\config.xml");
                 xml.Serialize(config);
             }
             catch { }
@@ -53,7 +53,7 @@ namespace MDW_wf.Controller
         public static ConfigManager ReadConfig()
         {
             string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            XML<ConfigManager> xml = new XML<ConfigManager>(path + "\\config.xml");
+            Connectivity.XML<ConfigManager> xml = new Connectivity.XML<ConfigManager>(path + "\\config.xml");
             return xml.Deserialize() ?? new ConfigManager();
         }
 
@@ -62,7 +62,7 @@ namespace MDW_wf.Controller
             try
             {
                 string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-                XML<List<ReaderModel>> xml = new XML<List<ReaderModel>>(path + "\\readers.xml");
+                Connectivity.XML<List<ReaderModel>> xml = new Connectivity.XML<List<ReaderModel>>(path + "\\readers.xml");
                 xml.Serialize(readers);
             }
             catch { }
@@ -70,7 +70,7 @@ namespace MDW_wf.Controller
         public static List<ReaderModel> LoadReaders()
         {
             string path = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            XML<List<ReaderModel>> xml = new XML<List<ReaderModel>>(path + "\\readers.xml");
+            Connectivity.XML<List<ReaderModel>> xml = new Connectivity.XML<List<ReaderModel>>(path + "\\readers.xml");
             return xml.Deserialize() ?? new List<ReaderModel>();
         }
     }

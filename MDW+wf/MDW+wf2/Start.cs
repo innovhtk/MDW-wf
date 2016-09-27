@@ -36,6 +36,7 @@ namespace MDW_wf
         #endregion
 
         #region Global Variables
+        public ServerGPIO serverGpio = new ServerGPIO(500);
         public Color ThemeColor = Color.FromArgb(32, 50, 72);
         private string filter = "";
         public string Filter { get { return filter.ToLower(); } set { filter = value; } }
@@ -66,7 +67,10 @@ namespace MDW_wf
             lvReaders.View = View.Tile;
 
             publish = new Publish();
+
+            serverGpio.SetupServer();
         }
+
         private void Start_Load(object sender, EventArgs e)
         {
             FillConfiguration();
@@ -1527,7 +1531,7 @@ namespace MDW_wf
         {
             Program.configManager.SocketIP = tbConfWsocketIP.Text;
             int port = 0;
-            int.TryParse(tbConfWsocketIP.Text, out port);
+            int.TryParse(tbConfWSocketPort.Text, out port);
             Program.configManager.SocketPort = port;
         }
         private void btSaveConfXML_Click(object sender, EventArgs e)
@@ -1598,8 +1602,18 @@ namespace MDW_wf
         private void cbPublishWebSocket_CheckedChanged(object sender, EventArgs e)
         {
             if (Program.configManager.SocketIP == "") return;
-            socketClient = new SocketClient(Program.configManager.SocketIP, Program.configManager.SocketPort);
-            socketClient.Start();
+            if(cbPublishWebSocket.Checked)
+            {
+                socketClient = new SocketClient(Program.configManager.SocketIP, Program.configManager.SocketPort);
+                socketClient.Start();
+                socketClient.ReceiveMessages();
+            }
+            else
+            {
+                socketClient.Dispose();
+            }
+           
+
         }
 
         private void rbVersion1_CheckedChanged(object sender, EventArgs e)

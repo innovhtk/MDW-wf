@@ -4,14 +4,14 @@
   <description asmv2:publisher="MDW+wf" asmv2:product="MDW+wf" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" />
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="MDW+wf.exe.manifest" size="12158">
+    <dependentAssembly dependencyType="install" codebase="MDW+wf.exe.manifest" size="11517">
       <assemblyIdentity name="MDW+wf.exe" version="1.0.0.5" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>byZjG8WygRms9i0rhrbXvNCAyrM=</dsig:DigestValue>
+        <dsig:DigestValue>4PcrVXotNdudzbN9GU3JZJ+Bvs0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

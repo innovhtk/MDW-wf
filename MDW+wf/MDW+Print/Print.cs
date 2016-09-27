@@ -9,7 +9,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NiceLabel5WR;
+//using NiceLabel5WR;
 using System.Threading;
 using System.IO;
 using HTKLibrary.Comunications;
@@ -27,15 +27,15 @@ namespace MDW_Print
         }
         private void Print_Load(object sender, EventArgs e)
         {
-            FillConfiguration();
-            HideTabHeaders();
+            //FillConfiguration();
+            //HideTabHeaders();
 
-            nice = new NiceApp();
-            txtNum.Text = _numValue.ToString();
-            stkAjusteEPC.Visible = false;
+            //nice = new NiceApp();
+            //txtNum.Text = _numValue.ToString();
+            //stkAjusteEPC.Visible = false;
         }
 
-       
+
 
         private void HideTabHeaders()
         {
@@ -65,17 +65,17 @@ namespace MDW_Print
             if (address.Count > 0)
                 lbToolbarIP.Invoke(new MethodInvoker(delegate { lbToolbarIPWifi.Text = addresswifi[0]; }));
 
-           
+
         }
 
         #region Print
         #region Properties
-        public NiceLabel LabelIntf;
-        public string LabelFileNameBMP;
-        public string ActualLabelFileName;
-        public string PreviewFileName;
-        public bool Result;
-        public NiceApp nice;
+        //public NiceLabel LabelIntf;
+        //public string LabelFileNameBMP;
+        //public string ActualLabelFileName;
+        //public string PreviewFileName;
+        //public bool Result;
+        //public NiceApp nice;
         public List<string> Columns = new List<string>();
         public List<string> Values = new List<string>();
         Thread PublishPrinterChange;
@@ -117,7 +117,7 @@ namespace MDW_Print
             {
                 return (string)tbPrinterAlias.Invoke(new Func<string>(() => tbPrinterAlias.Text));
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return "";
             }
@@ -128,29 +128,29 @@ namespace MDW_Print
         }
         private void DefaultLabelVariableValues()
         {
-            AdjustEPC = false;
-            stkAjusteEPC.Visible = false;
-            for (int i = 0; i < LabelIntf.Variables.Count; i++)
-            {
-                var Var = (WRVar)LabelIntf.Variables.Item(i);
-                if (!(Var == null))
-                {
-                    if (LabelIntf.Variables.Item(i).Name.ToString() == "EPC")
-                    {
-                        Var.SetValue(new string('0', 24));
-                    }
-                    else if (LabelIntf.Variables.Item(i).Name.ToString() == "EPC2")
-                    {
-                        Var.SetValue(new string('0', 23) + "1");
-                        stkAjusteEPC.Visible = true;
-                        AdjustEPC = true;
-                    }
-                    else
-                    {
-                        Var.SetValue(LabelIntf.Variables.Item(i).Name);
-                    }
-                }
-            }
+            //AdjustEPC = false;
+            //stkAjusteEPC.Visible = false;
+            //for (int i = 0; i < LabelIntf.Variables.Count; i++)
+            //{
+            //    var Var = (WRVar)LabelIntf.Variables.Item(i);
+            //    if (!(Var == null))
+            //    {
+            //        if (LabelIntf.Variables.Item(i).Name.ToString() == "EPC")
+            //        {
+            //            Var.SetValue(new string('0', 24));
+            //        }
+            //        else if (LabelIntf.Variables.Item(i).Name.ToString() == "EPC2")
+            //        {
+            //            Var.SetValue(new string('0', 23) + "1");
+            //            stkAjusteEPC.Visible = true;
+            //            AdjustEPC = true;
+            //        }
+            //        else
+            //        {
+            //            Var.SetValue(LabelIntf.Variables.Item(i).Name);
+            //        }
+            //    }
+            //}
         }
         private void DeleteFile(string file)
         {
@@ -165,270 +165,270 @@ namespace MDW_Print
         }
         private void ShowImage(string BMPfile)
         {
-            Bitmap bitmap = new Bitmap(LabelFileNameBMP);
-            Picture.Image = bitmap;
-            Picture.Visible = true;
-            bitmap = null;
+            //Bitmap bitmap = new Bitmap(LabelFileNameBMP);
+            //Picture.Image = bitmap;
+            //Picture.Visible = true;
+            //bitmap = null;
         }
         private List<string> GetPrinters()
         {
             List<string> Printers = new List<string>();
-            EventArgs arg = new EventArgs();
-            btOpenDefaultLabel_Click(this, arg);
-            string printers = LabelIntf.GetPrintersList();
-            foreach (var item in printers.Split(','))
-                Printers.Add(item.Replace("\"", ""));
+            //EventArgs arg = new EventArgs();
+            //btOpenDefaultLabel_Click(this, arg);
+            //string printers = LabelIntf.GetPrintersList();
+            //foreach (var item in printers.Split(','))
+            //    Printers.Add(item.Replace("\"", ""));
             return Printers;
         }
         private void ShowConnectedPrinters()
         {
-            string printers = LabelIntf.GetPrintersList();
-            foreach (var item in printers.Split(','))
-                cbPrinters.Items.Add(item.Replace("\"", ""));
+            //string printers = LabelIntf.GetPrintersList();
+            //foreach (var item in printers.Split(','))
+            //    cbPrinters.Items.Add(item.Replace("\"", ""));
 
-            if (cbPrinters.Items.Count > 0)
-            {
-                cbPrinters.Text = cbPrinters.Items[0].ToString();
-                for (int i = cbPrinters.Items.Count - 1; i > 0; i--)
-                {
-                    if (cbPrinters.Items[i].ToString().ToLower().Contains("zdesigner"))
-                    {
-                        cbPrinters.Text = cbPrinters.Items[i].ToString();
-                        break;
-                    }
-                }
-                LabelIntf.PrinterName = GetActivePrinter();
-            }
+            //if (cbPrinters.Items.Count > 0)
+            //{
+            //    cbPrinters.Text = cbPrinters.Items[0].ToString();
+            //    for (int i = cbPrinters.Items.Count - 1; i > 0; i--)
+            //    {
+            //        if (cbPrinters.Items[i].ToString().ToLower().Contains("zdesigner"))
+            //        {
+            //            cbPrinters.Text = cbPrinters.Items[i].ToString();
+            //            break;
+            //        }
+            //    }
+            //    LabelIntf.PrinterName = GetActivePrinter();
+            //}
         }
         private void OpenLabel(string LabelFileName)
         {
-            CloseLabel();
-            LabelIntf = nice.LabelOpenEx(LabelFileName);
-            LabelFileNameBMP = LabelFileName.Replace(".lbl", ".bmp");
-            DeleteFile(LabelFileNameBMP);
-            DefaultLabelVariableValues();
-            if (LabelIntf.GetLabelPreview(LabelFileNameBMP, 500, 250))
-            {
-                ShowImage(LabelFileNameBMP);
-                ShowConnectedPrinters();
-                PrintListData = GetPrintTable();
-                PrintList.DataSource = PrintListData.AsDataView();
-                LabelDir = LabelFileName;
-                lbLabelName.Text = LabelFileName.Split('\\')[LabelFileName.Split('\\').Length - 1];
-                LabelIntf.PrinterName = GetActivePrinter();
-                btPrint.Enabled = true;
-                if (tgWebServicePrint.Checked == true) { PublishPrinter(); }
-                LabelReady = true;
+            //CloseLabel();
+            //LabelIntf = nice.LabelOpenEx(LabelFileName);
+            //LabelFileNameBMP = LabelFileName.Replace(".lbl", ".bmp");
+            //DeleteFile(LabelFileNameBMP);
+            //DefaultLabelVariableValues();
+            //if (LabelIntf.GetLabelPreview(LabelFileNameBMP, 500, 250))
+            //{
+            //    ShowImage(LabelFileNameBMP);
+            //    ShowConnectedPrinters();
+            //    PrintListData = GetPrintTable();
+            //    PrintList.DataSource = PrintListData.AsDataView();
+            //    LabelDir = LabelFileName;
+            //    lbLabelName.Text = LabelFileName.Split('\\')[LabelFileName.Split('\\').Length - 1];
+            //    LabelIntf.PrinterName = GetActivePrinter();
+            //    btPrint.Enabled = true;
+            //    if (tgWebServicePrint.Checked == true) { PublishPrinter(); }
+            //    LabelReady = true;
 
-            }
-            else
-            {
-                Picture.Visible = true;
-                btPrint.Enabled = false;
-                LabelReady = false;
-            }
+            //}
+            //else
+            //{
+            //    Picture.Visible = true;
+            //    btPrint.Enabled = false;
+            //    LabelReady = false;
+            //}
         }
         private DataTable GetPrintTable()
         {
             DataTable table = new DataTable();
-            List<string> variables = new List<string>();
-            for (int i = 0; i < LabelIntf.Variables.Count; i++)
-            {
-                try
-                {
-                    if (LabelIntf.Variables.Item(i).Name.ToString() == "EPC")
-                        continue;
-                    if (LabelIntf.Variables.Item(i).Name.ToString() == "EPC2")
-                    {
-                        AdjustEPC = true;
-                        continue;
-                    }
-                    table.Columns.Add(LabelIntf.Variables.Item(i).Name, typeof(string));
-                }
-                catch (Exception) { }
-            }
-            table.Columns.Add("Cantidad", typeof(string));
+            //List<string> variables = new List<string>();
+            //for (int i = 0; i < LabelIntf.Variables.Count; i++)
+            //{
+            //    try
+            //    {
+            //        if (LabelIntf.Variables.Item(i).Name.ToString() == "EPC")
+            //            continue;
+            //        if (LabelIntf.Variables.Item(i).Name.ToString() == "EPC2")
+            //        {
+            //            AdjustEPC = true;
+            //            continue;
+            //        }
+            //        table.Columns.Add(LabelIntf.Variables.Item(i).Name, typeof(string));
+            //    }
+            //    catch (Exception) { }
+            //}
+            //table.Columns.Add("Cantidad", typeof(string));
 
             return table;
         }
         private void CloseLabel()
         {
-            if (LabelIntf != null)
-            {
-                DeleteFile(LabelFileNameBMP);
-                LabelIntf.Free();
-                LabelIntf.Free();
-                LabelIntf.Free();
-                LabelIntf.Free();
-                Thread.Sleep(100);
-                LabelIntf = null;
-                LabelIntf = null;
-                LabelIntf = null;
-                LabelIntf = null;
-                Thread.Sleep(100);
-                //Picture.Image.Dispose();
-                Picture.Visible = false;
-                Bitmap bitmap = new Bitmap(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\default.bmp");
-                Picture.Image = bitmap;
-            }
+            //if (LabelIntf != null)
+            //{
+            //    DeleteFile(LabelFileNameBMP);
+            //    LabelIntf.Free();
+            //    LabelIntf.Free();
+            //    LabelIntf.Free();
+            //    LabelIntf.Free();
+            //    Thread.Sleep(100);
+            //    LabelIntf = null;
+            //    LabelIntf = null;
+            //    LabelIntf = null;
+            //    LabelIntf = null;
+            //    Thread.Sleep(100);
+            //    //Picture.Image.Dispose();
+            //    Picture.Visible = false;
+            //    Bitmap bitmap = new Bitmap(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\default.bmp");
+            //    Picture.Image = bitmap;
+            //}
         }
         private void SetLabelVariable(string name, string value)
         {
-            var Var = (WRVar)LabelIntf.Variables.FindByName(name);
-            try
-            {
-                for (int i = 0; i < 4; i++)
-                {
-                    if (Var != null)
-                    {
-                        Var.SetValue(value);
-                    }
-                }
-            }
-            catch (Exception)
-            {
-            }
+            //var Var = (WRVar)LabelIntf.Variables.FindByName(name);
+            //try
+            //{
+            //    for (int i = 0; i < 4; i++)
+            //    {
+            //        if (Var != null)
+            //        {
+            //            Var.SetValue(value);
+            //        }
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //}
 
         }
         private void btPrint_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (LabelIntf == null) return;
-                LabelIntf.PrinterName = GetActivePrinter();
-                int adjust = 0;
-                if (AdjustEPC)
-                    adjust = GetEPCAjust();
-                int total = PrintList.Rows.Count - 1;
-                if (total < 1) return; //if no data return
-                int send = 0;
-                // go over every row
-                foreach (DataGridViewRow item in PrintList.Rows)
-                {
-                    Columns = new List<string>();
-                    Values = new List<string>();
-                    string datestring = DateTime.Now.ToString("yyyyMMddHHmmssfff");
-                    // go over every column
-                    for (int i = 0; i < PrintList.Columns.Count - 1; i++)
-                    {
-                        // get column name and set for the variable name
-                        string variablesName = PrintList.Columns[i].HeaderText.ToString();
-                        Columns.Add(variablesName);
-                        var Var = LabelIntf.Variables.FindByName(variablesName);
-                        for (int k = 0; k < 4; k++)
-                        {
-                            Var = LabelIntf.Variables.FindByName(variablesName);
-                        }
-                        try
-                        {
-                            if (Var != null)
-                            {
-                                // get the variable value
-                                if (item.Cells[i].Value != null)
-                                {
-                                    var value = item.Cells[i].Value.ToString();
-                                    Var.SetValue(value);
-                                    Values.Add(value);
-                                }
-                                else
-                                {
-                                    Var.SetValue("");
-                                    Values.Add("");
-                                }
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            continue;
-                        }
+            //try
+            //{
+            //    if (LabelIntf == null) return;
+            //    LabelIntf.PrinterName = GetActivePrinter();
+            //    int adjust = 0;
+            //    if (AdjustEPC)
+            //        adjust = GetEPCAjust();
+            //    int total = PrintList.Rows.Count - 1;
+            //    if (total < 1) return; //if no data return
+            //    int send = 0;
+            //    // go over every row
+            //    foreach (DataGridViewRow item in PrintList.Rows)
+            //    {
+            //        Columns = new List<string>();
+            //        Values = new List<string>();
+            //        string datestring = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            //        // go over every column
+            //        for (int i = 0; i < PrintList.Columns.Count - 1; i++)
+            //        {
+            //            // get column name and set for the variable name
+            //            string variablesName = PrintList.Columns[i].HeaderText.ToString();
+            //            Columns.Add(variablesName);
+            //            var Var = LabelIntf.Variables.FindByName(variablesName);
+            //            for (int k = 0; k < 4; k++)
+            //            {
+            //                Var = LabelIntf.Variables.FindByName(variablesName);
+            //            }
+            //            try
+            //            {
+            //                if (Var != null)
+            //                {
+            //                    // get the variable value
+            //                    if (item.Cells[i].Value != null)
+            //                    {
+            //                        var value = item.Cells[i].Value.ToString();
+            //                        Var.SetValue(value);
+            //                        Values.Add(value);
+            //                    }
+            //                    else
+            //                    {
+            //                        Var.SetValue("");
+            //                        Values.Add("");
+            //                    }
+            //                }
+            //            }
+            //            catch (Exception)
+            //            {
+            //                continue;
+            //            }
 
-                    }
-                    try
-                    {
-                        int nullvalues = 0;
-                        for (int i = 0; i < PrintList.Columns.Count; i++)
-                        {
-                            if (item.Cells[i].Value == null)
-                            {
-                                nullvalues++;
-                            }
-                        }
-                        if (nullvalues == PrintList.Columns.Count)
-                        {
-                            continue;
-                        }
+            //        }
+            //        try
+            //        {
+            //            int nullvalues = 0;
+            //            for (int i = 0; i < PrintList.Columns.Count; i++)
+            //            {
+            //                if (item.Cells[i].Value == null)
+            //                {
+            //                    nullvalues++;
+            //                }
+            //            }
+            //            if (nullvalues == PrintList.Columns.Count)
+            //            {
+            //                continue;
+            //            }
 
-                        try
-                        {
-                            string strquantity = item.Cells[PrintList.Columns.Count - 1].Value.ToString();
-                            int quantity = Convert.ToInt32(strquantity);
-                            for (int j = 0; j < quantity; j++)
-                            {
-                                string prefix = tbPrefix.Text + datestring;
-                                string epc = prefix + new string('0', 24 - prefix.Length - j.ToString().Length) + (j + 1).ToString();
-                                var Var = (WRVar)LabelIntf.Variables.FindByName("EPC");
-                                try
-                                {
-                                    if (Var != null)
-                                    {
-                                        Var.SetValue(epc);
-                                    }
-                                }
-                                catch (Exception)
-                                {
-                                    continue;
-                                }
-                                if (Columns.Find(x => x == "EPC") != null)
-                                {
-                                    Values[Columns.IndexOf("EPC")] = epc;
-                                }
-                                else
-                                {
-                                    Columns.Add("EPC");
-                                    Values.Add(epc);
-                                }
-                                if (AdjustEPC)
-                                {
-                                    string epc2 = prefix + new string('0', 24 - prefix.Length - j.ToString().Length) + (j + 1 + adjust).ToString();
-                                    var VarEPC2 = (WRVar)LabelIntf.Variables.FindByName("EPC2");
-                                    try
-                                    {
-                                        if (VarEPC2 != null)
-                                        {
-                                            VarEPC2.SetValue(epc2);
-                                        }
-                                    }
-                                    catch (Exception)
-                                    {
-                                        continue;
-                                    }
-                                    if (Columns.Find(x => x == "EPC2") != null)
-                                    {
-                                        Values[Columns.IndexOf("EPC2")] = epc2;
-                                    }
-                                    else
-                                    {
-                                        Columns.Add("EPC2");
-                                        Values.Add(epc2);
-                                    }
-                                }
-                                if (LabelIntf.Print("1"))
-                                {
-                                    send++;
-                                }
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            continue;
-                        }
-                    }
-                    catch (Exception)
-                    {
-                    }
-                }
-            }
-            catch (Exception) { }
+            //            try
+            //            {
+            //                string strquantity = item.Cells[PrintList.Columns.Count - 1].Value.ToString();
+            //                int quantity = Convert.ToInt32(strquantity);
+            //                for (int j = 0; j < quantity; j++)
+            //                {
+            //                    string prefix = tbPrefix.Text + datestring;
+            //                    string epc = prefix + new string('0', 24 - prefix.Length - j.ToString().Length) + (j + 1).ToString();
+            //                    var Var = (WRVar)LabelIntf.Variables.FindByName("EPC");
+            //                    try
+            //                    {
+            //                        if (Var != null)
+            //                        {
+            //                            Var.SetValue(epc);
+            //                        }
+            //                    }
+            //                    catch (Exception)
+            //                    {
+            //                        continue;
+            //                    }
+            //                    if (Columns.Find(x => x == "EPC") != null)
+            //                    {
+            //                        Values[Columns.IndexOf("EPC")] = epc;
+            //                    }
+            //                    else
+            //                    {
+            //                        Columns.Add("EPC");
+            //                        Values.Add(epc);
+            //                    }
+            //                    if (AdjustEPC)
+            //                    {
+            //                        string epc2 = prefix + new string('0', 24 - prefix.Length - j.ToString().Length) + (j + 1 + adjust).ToString();
+            //                        var VarEPC2 = (WRVar)LabelIntf.Variables.FindByName("EPC2");
+            //                        try
+            //                        {
+            //                            if (VarEPC2 != null)
+            //                            {
+            //                                VarEPC2.SetValue(epc2);
+            //                            }
+            //                        }
+            //                        catch (Exception)
+            //                        {
+            //                            continue;
+            //                        }
+            //                        if (Columns.Find(x => x == "EPC2") != null)
+            //                        {
+            //                            Values[Columns.IndexOf("EPC2")] = epc2;
+            //                        }
+            //                        else
+            //                        {
+            //                            Columns.Add("EPC2");
+            //                            Values.Add(epc2);
+            //                        }
+            //                    }
+            //                    if (LabelIntf.Print("1"))
+            //                    {
+            //                        send++;
+            //                    }
+            //                }
+            //            }
+            //            catch (Exception)
+            //            {
+            //                continue;
+            //            }
+            //        }
+            //        catch (Exception)
+            //        {
+            //        }
+            //    }
+            //}
+            //catch (Exception) { }
         }
 
         private void PublishPrinter()
@@ -444,7 +444,7 @@ namespace MDW_Print
         }
         private void tbAlias_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
         private void publishPrinter()
         {
@@ -517,84 +517,84 @@ namespace MDW_Print
 
         private void WebServicePrintTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
-            try
-            {
-                if (LabelIntf == null) return;
-                if (!LabelReady) { return; }
-                if (!Printing)
-                {
-                    Printing = true;
-                    //MessageCenter.Print("Imprimiendo desde: " + ConfigManager.UserURL);
-                    //var pendingList = RestClient.GetPrintPendingList();
-                    //RestClient.DeleteFromPrintPendingList(pendingList);
+            //try
+            //{
+            //    if (LabelIntf == null) return;
+            //    if (!LabelReady) { return; }
+            //    if (!Printing)
+            //    {
+            //        Printing = true;
+            //        //MessageCenter.Print("Imprimiendo desde: " + ConfigManager.UserURL);
+            //        //var pendingList = RestClient.GetPrintPendingList();
+            //        //RestClient.DeleteFromPrintPendingList(pendingList);
 
-                    //foreach (WebServiceLabel label in pendingList)
-                    //{
-                    //    if (label.Printer == RestClient.lastPrinterAlias)
-                    //    {
-                    //        PrintFromRest(label);
-                    //    }
-                    //}
-                    //MessageCenter.Print("");
-                    Printing = false;
-                }
+            //        //foreach (WebServiceLabel label in pendingList)
+            //        //{
+            //        //    if (label.Printer == RestClient.lastPrinterAlias)
+            //        //    {
+            //        //        PrintFromRest(label);
+            //        //    }
+            //        //}
+            //        //MessageCenter.Print("");
+            //        Printing = false;
+            //    }
 
 
-            }
-            catch (Exception)
-            {
+            //}
+            //catch (Exception)
+            //{
 
-            }
+            //}
         }
 
-        //private void PrintFromRest(WebServiceLabel tag)
-        //{
-        //    try
-        //    {
-        //        string epcfromlabel = "";
-        //        string propfromlabel = "";
-        //        while (epcfromlabel == "")
-        //        {
-        //            try
-        //            {
-        //                epcfromlabel = LabelIntf.Variables.FindByName("EPC").GetValue();
-        //                while (epcfromlabel != tag.EPC)
-        //                {
-        //                    SetLabelVariable("EPC", tag.EPC);
-        //                    epcfromlabel = LabelIntf.Variables.FindByName("EPC").GetValue();
-        //                    Thread.Sleep(100);
-        //                }
-        //            }
-        //            catch (Exception) { }
-        //            foreach (Property property in tag.Properties)
-        //            {
-        //                try
-        //                {
-        //                    propfromlabel = LabelIntf.Variables.FindByName(property.Name).GetValue();
-        //                    while (propfromlabel != property.Value)
-        //                    {
-        //                        SetLabelVariable(property.Name, property.Value);
-        //                        propfromlabel = LabelIntf.Variables.FindByName(property.Name).GetValue();
-        //                        Thread.Sleep(100);
-        //                    }
-        //                }
-        //                catch (Exception) { }
-        //            }
-        //        }
+        ////private void PrintFromRest(WebServiceLabel tag)
+        ////{
+        ////    try
+        ////    {
+        ////        string epcfromlabel = "";
+        ////        string propfromlabel = "";
+        ////        while (epcfromlabel == "")
+        ////        {
+        ////            try
+        ////            {
+        ////                epcfromlabel = LabelIntf.Variables.FindByName("EPC").GetValue();
+        ////                while (epcfromlabel != tag.EPC)
+        ////                {
+        ////                    SetLabelVariable("EPC", tag.EPC);
+        ////                    epcfromlabel = LabelIntf.Variables.FindByName("EPC").GetValue();
+        ////                    Thread.Sleep(100);
+        ////                }
+        ////            }
+        ////            catch (Exception) { }
+        ////            foreach (Property property in tag.Properties)
+        ////            {
+        ////                try
+        ////                {
+        ////                    propfromlabel = LabelIntf.Variables.FindByName(property.Name).GetValue();
+        ////                    while (propfromlabel != property.Value)
+        ////                    {
+        ////                        SetLabelVariable(property.Name, property.Value);
+        ////                        propfromlabel = LabelIntf.Variables.FindByName(property.Name).GetValue();
+        ////                        Thread.Sleep(100);
+        ////                    }
+        ////                }
+        ////                catch (Exception) { }
+        ////            }
+        ////        }
 
-        //        LabelIntf.PrinterName = (string)cbPrinters.Invoke(new Func<string>(() => cbPrinters.Text));
-        //        LabelIntf.Print("1");
+        ////        LabelIntf.PrinterName = (string)cbPrinters.Invoke(new Func<string>(() => cbPrinters.Text));
+        ////        LabelIntf.Print("1");
 
-        //    }
-        //    catch (Exception) { }
-        //}
+        ////    }
+        ////    catch (Exception) { }
+        ////}
         #endregion
 
         #endregion
 
         private void tgWebServicePrint_CheckedChanged(object sender, EventArgs e)
         {
-            if(tgWebServicePrint.Checked)
+            if (tgWebServicePrint.Checked)
             {
                 Activate();
                 if (!Program.configManager.Activated)
@@ -660,130 +660,130 @@ namespace MDW_Print
         private void WebServicePrintTimer_Elapsed1(object sender, System.Timers.ElapsedEventArgs e)
         {
             var tag = restClient.PullTagFromPrinterPrintQueue(GetActivePrinterAlias());
-            if(tag != null && tag.epc != null)
+            if (tag != null && tag.epc != null)
             {
                 PrintTag(tag);
             }
         }
         private void PrintTag(PrintTag tag)
         {
-            try
-            {
-                List<string> tagProperties = new List<string>();
-                foreach(var item in tag.fields.Keys)
-                {
-                    tagProperties.Add(item);
-                }
-                if (LabelIntf == null) return;
-                LabelIntf.PrinterName = GetActivePrinter();
-                int adjust = 0;
-                if (AdjustEPC)
-                    adjust = GetEPCAjust();
-                int send = 0;
-                    Columns = new List<string>();
-                    Values = new List<string>();
-                    string datestring = DateTime.Now.ToString("yyyyMMddHHmmssfff");
-               
-                // go over every column
-                    for (int i = 0; i < tagProperties.Count - 1; i++)
-                    {
-                        // get column name and set for the variable name
-                        string variablesName = tagProperties[i];
-                        Columns.Add(variablesName);
-                        var Var = LabelIntf.Variables.FindByName(variablesName);
-                        for (int k = 0; k < 4; k++)
-                        {
-                            Var = LabelIntf.Variables.FindByName(variablesName);
-                        }
-                        try
-                        {
-                            if (Var != null)
-                            {
-                                // get the variable value
-                                if (tag.fields[tagProperties[i]]!= null)
-                                {
-                                var value = tag.fields[tagProperties[i]];
-                                    Var.SetValue(value);
-                                    Values.Add(value);
-                                }
-                                else
-                                {
-                                    Var.SetValue("");
-                                    Values.Add("");
-                                }
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            continue;
-                        }
+            //    try
+            //    {
+            //        List<string> tagProperties = new List<string>();
+            //        foreach (var item in tag.fields.Keys)
+            //        {
+            //            tagProperties.Add(item);
+            //        }
+            //        if (LabelIntf == null) return;
+            //        LabelIntf.PrinterName = GetActivePrinter();
+            //        int adjust = 0;
+            //        if (AdjustEPC)
+            //            adjust = GetEPCAjust();
+            //        int send = 0;
+            //        Columns = new List<string>();
+            //        Values = new List<string>();
+            //        string datestring = DateTime.Now.ToString("yyyyMMddHHmmssfff");
 
-                    }
-                try
-                {
-                    int quantity = 1;
-                    for (int j = 0; j < quantity; j++)
-                    {
-                        var Var = (WRVar)LabelIntf.Variables.FindByName("EPC");
-                        try
-                        {
-                            if (Var != null)
-                            {
-                                Var.SetValue(tag.epc);
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            continue;
-                        }
-                        if (Columns.Find(x => x == "EPC") != null)
-                        {
-                            Values[Columns.IndexOf("EPC")] = tag.epc;
-                        }
-                        else
-                        {
-                            Columns.Add("EPC");
-                            Values.Add(tag.epc);
-                        }
-                        if (AdjustEPC)
-                        {
-                            int value = Int32.Parse(tag.epc, System.Globalization.NumberStyles.HexNumber);
-                            int value2 = value + 1;
-                            string epc2 = string.Format("{0:X2}", value2);
-                            var VarEPC2 = (WRVar)LabelIntf.Variables.FindByName("EPC2");
-                            try
-                            {
-                                if (VarEPC2 != null)
-                                {
-                                    VarEPC2.SetValue(epc2);
-                                }
-                            }
-                            catch (Exception)
-                            {
-                                continue;
-                            }
-                            if (Columns.Find(x => x == "EPC2") != null)
-                            {
-                                Values[Columns.IndexOf("EPC2")] = epc2;
-                            }
-                            else
-                            {
-                                Columns.Add("EPC2");
-                                Values.Add(epc2);
-                            }
-                        }
-                        if (LabelIntf.Print("1"))
-                        {
-                            send++;
-                        }
-                    }
+            //        // go over every column
+            //        for (int i = 0; i < tagProperties.Count - 1; i++)
+            //        {
+            //            // get column name and set for the variable name
+            //            string variablesName = tagProperties[i];
+            //            Columns.Add(variablesName);
+            //            var Var = LabelIntf.Variables.FindByName(variablesName);
+            //            for (int k = 0; k < 4; k++)
+            //            {
+            //                Var = LabelIntf.Variables.FindByName(variablesName);
+            //            }
+            //            try
+            //            {
+            //                if (Var != null)
+            //                {
+            //                    // get the variable value
+            //                    if (tag.fields[tagProperties[i]] != null)
+            //                    {
+            //                        var value = tag.fields[tagProperties[i]];
+            //                        Var.SetValue(value);
+            //                        Values.Add(value);
+            //                    }
+            //                    else
+            //                    {
+            //                        Var.SetValue("");
+            //                        Values.Add("");
+            //                    }
+            //                }
+            //            }
+            //            catch (Exception)
+            //            {
+            //                continue;
+            //            }
 
-                }
-                catch (Exception)
-                {
-                }
-            }
-            catch (Exception) { }
+            //        }
+            //        try
+            //        {
+            //            int quantity = 1;
+            //            for (int j = 0; j < quantity; j++)
+            //            {
+            //                var Var = (WRVar)LabelIntf.Variables.FindByName("EPC");
+            //                try
+            //                {
+            //                    if (Var != null)
+            //                    {
+            //                        Var.SetValue(tag.epc);
+            //                    }
+            //                }
+            //                catch (Exception)
+            //                {
+            //                    continue;
+            //                }
+            //                if (Columns.Find(x => x == "EPC") != null)
+            //                {
+            //                    Values[Columns.IndexOf("EPC")] = tag.epc;
+            //                }
+            //                else
+            //                {
+            //                    Columns.Add("EPC");
+            //                    Values.Add(tag.epc);
+            //                }
+            //                if (AdjustEPC)
+            //                {
+            //                    int value = Int32.Parse(tag.epc, System.Globalization.NumberStyles.HexNumber);
+            //                    int value2 = value + 1;
+            //                    string epc2 = string.Format("{0:X2}", value2);
+            //                    var VarEPC2 = (WRVar)LabelIntf.Variables.FindByName("EPC2");
+            //                    try
+            //                    {
+            //                        if (VarEPC2 != null)
+            //                        {
+            //                            VarEPC2.SetValue(epc2);
+            //                        }
+            //                    }
+            //                    catch (Exception)
+            //                    {
+            //                        continue;
+            //                    }
+            //                    if (Columns.Find(x => x == "EPC2") != null)
+            //                    {
+            //                        Values[Columns.IndexOf("EPC2")] = epc2;
+            //                    }
+            //                    else
+            //                    {
+            //                        Columns.Add("EPC2");
+            //                        Values.Add(epc2);
+            //                    }
+            //                }
+            //                if (LabelIntf.Print("1"))
+            //                {
+            //                    send++;
+            //                }
+            //            }
+
+            //        }
+            //        catch (Exception)
+            //        {
+            //        }
+            //    }
+            //    catch (Exception) { }
         }
     }
 }

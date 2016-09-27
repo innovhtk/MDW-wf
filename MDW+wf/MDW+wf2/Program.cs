@@ -75,7 +75,7 @@ namespace MDW_wf
                         }
                     }
                 }
-                catch { }
+                catch(Exception ex) { MessageBox.Show(ex.Message);  }
             }
             else
             {

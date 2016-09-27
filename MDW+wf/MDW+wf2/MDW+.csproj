@@ -113,9 +113,11 @@
     <Compile Include="appSettings.cs" />
     <Compile Include="Connectivity\Encription.cs" />
     <Compile Include="Connectivity\Publish.cs" />
+    <Compile Include="Connectivity\ServerGPIO.cs" />
     <Compile Include="Connectivity\SQL.cs" />
     <Compile Include="Connectivity\WebService.cs" />
     <Compile Include="Connectivity\WebSocket.cs" />
+    <Compile Include="Connectivity\XML.cs" />
     <Compile Include="Control.Custom\ListViewEx.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -134,6 +136,7 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\GPIO.cs" />
     <Compile Include="Model\Hardware.cs" />
     <Compile Include="Model\LegacyTag.cs" />
     <Compile Include="Model\Printer.cs" />
@@ -240,17 +243,6 @@
     <None Include="bin\Debug\icons\search.png" />
     <Content Include="htk.ico" />
     <Content Include="Notas.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="NiceLabel5WR">
-      <Guid>{F46DDF43-8588-4632-9EE7-ABE4E4058EC8}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
