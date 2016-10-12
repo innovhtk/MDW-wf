@@ -16,6 +16,13 @@ namespace MDW_wf.Connectivity
         private List<System.Net.Sockets.Socket> _clientSockets = new List<System.Net.Sockets.Socket>();
         private System.Net.Sockets.Socket _serverSocket = new System.Net.Sockets.Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         private int _port = 100;
+        public delegate void GPIOEventHandler(GPIO gpio);
+        public event GPIOEventHandler GPIOSignal;
+        protected virtual void OnGPIOSignal(GPIO gpio)
+        {
+            if (GPIOSignal != null)
+                GPIOSignal(gpio);
+        }
 
         public ServerGPIO(int port)
         {
@@ -23,7 +30,7 @@ namespace MDW_wf.Connectivity
             _port = port;
         }
 
-        public void SetupServer()
+        public void Start()
         {
             Console.WriteLine("Setting up server...");
             _serverSocket.Bind(new IPEndPoint(IPAddress.Any, _port));
@@ -76,13 +83,16 @@ namespace MDW_wf.Connectivity
         {
             string sgpio = (string)obj;
             GPIO gpio = new GPIO(sgpio);
+            OnGPIOSignal(gpio);
             CS203.SetGPO0(gpio.ip, gpio.gpio0);
             CS203.SetGPO1(gpio.ip, gpio.gpio1);
             Thread.Sleep(1000);
             CS203.SetGPO0(gpio.ip, false);
             CS203.SetGPO1(gpio.ip, false);
+            gpio.gpio0 = false;
+            gpio.gpio1 = false;
+            OnGPIOSignal(gpio);
         }
-
 
         private void SendCallback(IAsyncResult AR)
         {

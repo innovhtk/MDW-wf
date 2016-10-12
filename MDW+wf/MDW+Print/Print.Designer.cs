@@ -36,7 +36,7 @@
             this.Picture = new System.Windows.Forms.PictureBox();
             this.panel28 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.tgSQLPrint = new System.Windows.Forms.CheckBox();
+            this.tgWebSocketPrint = new System.Windows.Forms.CheckBox();
             this.tgWebServicePrint = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.tbPrefix = new System.Windows.Forms.TextBox();
@@ -150,7 +150,7 @@
             // 
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.tgSQLPrint, 0, 5);
+            this.tableLayoutPanel4.Controls.Add(this.tgWebSocketPrint, 0, 5);
             this.tableLayoutPanel4.Controls.Add(this.tgWebServicePrint, 0, 4);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel18, 0, 6);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel17, 0, 1);
@@ -175,28 +175,28 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(180, 317);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
-            // tgSQLPrint
+            // tgWebSocketPrint
             // 
-            this.tgSQLPrint.Appearance = System.Windows.Forms.Appearance.Button;
-            this.tgSQLPrint.AutoSize = true;
-            this.tgSQLPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(50)))), ((int)(((byte)(72)))));
-            this.tgSQLPrint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tgSQLPrint.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(68)))), ((int)(((byte)(96)))));
-            this.tgSQLPrint.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
-            this.tgSQLPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
-            this.tgSQLPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
-            this.tgSQLPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tgSQLPrint.ForeColor = System.Drawing.Color.AliceBlue;
-            this.tgSQLPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tgSQLPrint.Location = new System.Drawing.Point(2, 178);
-            this.tgSQLPrint.Margin = new System.Windows.Forms.Padding(2);
-            this.tgSQLPrint.Name = "tgSQLPrint";
-            this.tgSQLPrint.Size = new System.Drawing.Size(176, 34);
-            this.tgSQLPrint.TabIndex = 12;
-            this.tgSQLPrint.Text = "SQL";
-            this.tgSQLPrint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tgSQLPrint.UseVisualStyleBackColor = false;
-            this.tgSQLPrint.Visible = false;
+            this.tgWebSocketPrint.Appearance = System.Windows.Forms.Appearance.Button;
+            this.tgWebSocketPrint.AutoSize = true;
+            this.tgWebSocketPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(50)))), ((int)(((byte)(72)))));
+            this.tgWebSocketPrint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tgWebSocketPrint.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(68)))), ((int)(((byte)(96)))));
+            this.tgWebSocketPrint.FlatAppearance.CheckedBackColor = System.Drawing.Color.SteelBlue;
+            this.tgWebSocketPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+            this.tgWebSocketPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SteelBlue;
+            this.tgWebSocketPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tgWebSocketPrint.ForeColor = System.Drawing.Color.AliceBlue;
+            this.tgWebSocketPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tgWebSocketPrint.Location = new System.Drawing.Point(2, 178);
+            this.tgWebSocketPrint.Margin = new System.Windows.Forms.Padding(2);
+            this.tgWebSocketPrint.Name = "tgWebSocketPrint";
+            this.tgWebSocketPrint.Size = new System.Drawing.Size(176, 34);
+            this.tgWebSocketPrint.TabIndex = 12;
+            this.tgWebSocketPrint.Text = "Web Socket";
+            this.tgWebSocketPrint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tgWebSocketPrint.UseVisualStyleBackColor = false;
+            this.tgWebSocketPrint.CheckedChanged += new System.EventHandler(this.tgWebSocketPrint_CheckedChanged);
             // 
             // tgWebServicePrint
             // 
@@ -433,22 +433,22 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Gotham Rounded Bold", 9F);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(26, 35);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(92, 14);
+            this.label10.Size = new System.Drawing.Size(89, 15);
             this.label10.TabIndex = 1;
             this.label10.Text = "MIDDLEWARE";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Gotham Rounded Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(21, 5);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(105, 32);
+            this.label9.Size = new System.Drawing.Size(97, 31);
             this.label9.TabIndex = 0;
             this.label9.Text = "MDW+";
             // 
@@ -640,7 +640,7 @@
         private System.Windows.Forms.PictureBox Picture;
         private System.Windows.Forms.Panel panel28;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.CheckBox tgSQLPrint;
+        private System.Windows.Forms.CheckBox tgWebSocketPrint;
         private System.Windows.Forms.CheckBox tgWebServicePrint;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
         private System.Windows.Forms.TextBox tbPrefix;

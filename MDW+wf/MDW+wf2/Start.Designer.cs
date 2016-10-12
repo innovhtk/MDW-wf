@@ -134,6 +134,11 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panelReadingsBack = new System.Windows.Forms.Panel();
             this.panelReadings = new System.Windows.Forms.Panel();
+            this.panel30 = new System.Windows.Forms.Panel();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.tbTestPort = new System.Windows.Forms.TextBox();
+            this.tbTestIp = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.tbSearchEPC = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -242,6 +247,8 @@
             this.panel19.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panelReadingsBack.SuspendLayout();
+            this.panelReadings.SuspendLayout();
+            this.panel30.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -710,7 +717,8 @@
             "CS203",
             "CS469",
             "CS101",
-            "Virtual"});
+            "Virtual",
+            "Remoto"});
             this.cbAddReaderModels.Location = new System.Drawing.Point(156, 79);
             this.cbAddReaderModels.Name = "cbAddReaderModels";
             this.cbAddReaderModels.Size = new System.Drawing.Size(147, 28);
@@ -1522,11 +1530,55 @@
             // 
             // panelReadings
             // 
+            this.panelReadings.Controls.Add(this.panel30);
             this.panelReadings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelReadings.Location = new System.Drawing.Point(0, 27);
             this.panelReadings.Name = "panelReadings";
             this.panelReadings.Size = new System.Drawing.Size(588, 521);
             this.panelReadings.TabIndex = 1;
+            // 
+            // panel30
+            // 
+            this.panel30.Controls.Add(this.label37);
+            this.panel30.Controls.Add(this.label36);
+            this.panel30.Controls.Add(this.tbTestPort);
+            this.panel30.Controls.Add(this.tbTestIp);
+            this.panel30.Location = new System.Drawing.Point(3, 470);
+            this.panel30.Name = "panel30";
+            this.panel30.Size = new System.Drawing.Size(580, 48);
+            this.panel30.TabIndex = 0;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(215, 19);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(41, 13);
+            this.label37.TabIndex = 3;
+            this.label37.Text = "Puerto:";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(14, 18);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(20, 13);
+            this.label36.TabIndex = 2;
+            this.label36.Text = "IP:";
+            // 
+            // tbTestPort
+            // 
+            this.tbTestPort.Location = new System.Drawing.Point(262, 16);
+            this.tbTestPort.Name = "tbTestPort";
+            this.tbTestPort.Size = new System.Drawing.Size(100, 20);
+            this.tbTestPort.TabIndex = 1;
+            // 
+            // tbTestIp
+            // 
+            this.tbTestIp.Location = new System.Drawing.Point(40, 16);
+            this.tbTestIp.Name = "tbTestIp";
+            this.tbTestIp.Size = new System.Drawing.Size(154, 20);
+            this.tbTestIp.TabIndex = 0;
             // 
             // panel7
             // 
@@ -2357,8 +2409,11 @@
             this.columnHeader2});
             this.lvReaders.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvReaders.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lvReaders.FullRowSelect = true;
+            this.lvReaders.HideSelection = false;
             this.lvReaders.LargeImageList = this.connectionImages;
             this.lvReaders.Location = new System.Drawing.Point(0, 27);
+            this.lvReaders.MultiSelect = false;
             this.lvReaders.Name = "lvReaders";
             this.lvReaders.Size = new System.Drawing.Size(200, 521);
             this.lvReaders.SmallImageList = this.connectionImages;
@@ -2652,6 +2707,9 @@
             this.panel19.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panelReadingsBack.ResumeLayout(false);
+            this.panelReadings.ResumeLayout(false);
+            this.panel30.ResumeLayout(false);
+            this.panel30.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -2872,6 +2930,11 @@
         private System.Windows.Forms.Panel panel29;
         private System.Windows.Forms.Label lbServiceUser;
         private System.Windows.Forms.TextBox tbServiceUser;
+        private System.Windows.Forms.Panel panel30;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.TextBox tbTestPort;
+        private System.Windows.Forms.TextBox tbTestIp;
     }
 }
 

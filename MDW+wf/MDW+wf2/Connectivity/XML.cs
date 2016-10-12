@@ -15,6 +15,11 @@ namespace MDW_wf.Connectivity
             XmlFile = file;
             ExistsFile = File.Exists(file);
         }
+        public XML()
+        {
+            XmlFile = null;
+            ExistsFile = false;
+        }
 
         public bool ExistsFile { get; set; }
         public string XmlFile { get; set; }
@@ -32,6 +37,16 @@ namespace MDW_wf.Connectivity
             T objects;
             objects = (T)deserializer.Deserialize(textReader);
             textReader.Close();
+
+            return objects;
+        }
+        public T DeserializeString(string s)
+        {
+            XmlSerializer deserializer = new XmlSerializer(typeof(T));
+            StringReader stringReader = new StringReader(s);
+            T objects;
+            objects = (T)deserializer.Deserialize(stringReader);
+            stringReader.Close();
 
             return objects;
         }

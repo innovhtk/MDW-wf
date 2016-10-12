@@ -37,6 +37,7 @@ namespace MDW_wf
 
         #region Global Variables
         public ServerGPIO serverGpio = new ServerGPIO(500);
+        public ServerTags serverTags = new ServerTags(501);
         public Color ThemeColor = Color.FromArgb(32, 50, 72);
         private string filter = "";
         public string Filter { get { return filter.ToLower(); } set { filter = value; } }
@@ -68,7 +69,15 @@ namespace MDW_wf
 
             publish = new Publish();
 
-            serverGpio.SetupServer();
+            serverGpio.Start();
+            serverGpio.GPIOSignal += ServerGpio_GPIOSignal;
+            serverTags.Start();
+        }
+
+        private void ServerGpio_GPIOSignal(GPIO gpio)
+        {
+            cbGPO0.Invoke((MethodInvoker)(() => cbGPO0.Checked = gpio.gpio0));
+            cbGPO1.Invoke((MethodInvoker)(() => cbGPO1.Checked = gpio.gpio1));
         }
 
         private void Start_Load(object sender, EventArgs e)
@@ -105,6 +114,12 @@ namespace MDW_wf
                     vr.alias = Program.Readers[i].alias;
                     Program.VRList.Add(vr);
                 }
+                if (Program.Readers[i].model.ToLower() == "remoto")
+                {
+                    SlaveReader vr = new SlaveReader(Program.Readers[i].ip, serverTags);
+                    vr.alias = Program.Readers[i].alias;
+                    Program.SlaveList.Add(vr);
+                }
                 //---aumetar cuenta de hardware
                 ListViewItem item = new ListViewItem(Program.Readers[i].ip);
                 item.SubItems.Add(Program.Readers[i].model + ", " + Program.Readers[i].alias);
@@ -128,6 +143,7 @@ namespace MDW_wf
                     AttachCallback(false, ReaderXP.IPAddress);
                 }
             }
+            Environment.Exit(0);
         }
         private void HideTabHeaders()
         {
@@ -371,7 +387,8 @@ namespace MDW_wf
             var reader = Program.CS203List.Find(delegate (HighLevelInterface h) { return h.Name == ip || h.IPAddress == ip; });
             var handheld = Program.CS101List.Find(delegate (CS101 hh) { return hh.IP == ip; });
             var vr = Program.VRList.Find(delegate (VirtualReader vv) { return vv.id == ip; });
-            if(index > -1)
+            var slave = Program.SlaveList.Find(delegate (SlaveReader ss) { return ss.id == ip; });
+            if (index > -1)
             {
                 if (!Program.Readers[index].connected)
                 {
@@ -392,20 +409,31 @@ namespace MDW_wf
                 }
                 if (Program.Readers[index].model.ToLower() == "cs101" && handheld != null)
                 {
-                    if (handheld == null) return;
+                    //if (handheld == null) return;
                     handheld.Play();
                     Program.Readers[index].connected = true;
                     handheld.NewTagReaded += Handheld_NewTagReaded;
                     AttachCallback(true, ip);
                     return;
                 }
-                if (Program.Readers[index].model.ToLower() == "virtual")
+                if (Program.Readers[index].model.ToLower() == "virtual" && vr != null)
                 {
-                    if (vr == null) return;
+                    //if (vr == null) return;
                     vr.Play();
                     Program.Readers[index].connected = true;
                     vr.NewTags += Vr_NewTags;
                     vr.connected = true;
+                    Program.Readers[index].started = true;
+                    AttachCallback(true, ip);
+                    return;
+                }
+                if (Program.Readers[index].model.ToLower() == "remoto" && slave != null)
+                {
+                    //if (slave == null) return;
+                    slave.Play();
+                    Program.Readers[index].connected = true;
+                    slave.NewTags += Slave_NewTags;
+                    slave.connected = true;
                     Program.Readers[index].started = true;
                     AttachCallback(true, ip);
                     return;
@@ -499,6 +527,58 @@ namespace MDW_wf
                 reader.SetPowerLevel((uint)tbPower.Value);
             }
            
+        }
+
+        private void Slave_NewTags(object sender, List<Tag> tags)
+        {
+            //string date = DateTime.Now.ToString();
+            foreach (Tag tag in tags)
+            {
+                try
+                {
+                    if (this.InvokeRequired)
+                    {
+                        this.BeginInvoke((System.Threading.ThreadStart)delegate ()
+                        {
+                            // Do your work here
+                            // UI refresh and data processing on other Thread
+                            // Notes :  blocking here will cause problem
+                            //          Please use asyn call or separate thread to refresh UI
+                            if (tag != null)
+                            {
+                                if ((!Program.appSetting.EnableRssiFilter) ||
+                                    (Program.appSetting.EnableRssiFilter && Program.appSetting.RssiFilterThreshold < tag.RSSI))
+                                {
+                                    Interlocked.Increment(ref totaltags);
+                                    S_EPC epc = new S_EPC(tag.EPC);
+                                    TagCallbackInfo tci = new TagCallbackInfo(0, tag.RSSI, 1, 300, epc);
+                                    UpdateInvUI(tci, tag.IP, tag.TimeStamp);
+                                }
+                            }
+                            else
+                            {
+                            }
+                        });
+                    }
+                    AntCycleCount++;
+                    if (AntCycleTimeCount <= 4)
+                    {
+                        AntCycleTime[AntCycleTimeCount++] = Environment.TickCount;
+                    }
+                    else
+                    {
+                        AntCycleTime[0] = AntCycleTime[1];
+                        AntCycleTime[1] = AntCycleTime[2];
+                        AntCycleTime[2] = AntCycleTime[3];
+                        AntCycleTime[3] = AntCycleTime[4];
+                        AntCycleTime[4] = Environment.TickCount;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void Vr_NewTags(object sender, List<Tag> tags)
@@ -623,6 +703,13 @@ namespace MDW_wf
                 vr.NewTags -= Vr_NewTags;
                 vr.Stop();
                 vr.connected = false;
+            }
+            else if (Program.Readers[index].model.ToLower() == "remoto")
+            {
+                var slave = Program.SlaveList.Find(delegate (SlaveReader hh) { return hh.id == ip; });
+                slave.NewTags -= Vr_NewTags;
+                slave.Stop();
+                slave.connected = false;
             }
             Program.Readers[index].started = false;
         }
@@ -1352,6 +1439,7 @@ namespace MDW_wf
                 var index = Program.Readers.FindIndex(r => r.ip == ip);
                 var reader = Program.CS203List.Find(delegate (HighLevelInterface h) { return h.Name == ip || h.IPAddress == ip; });
                 var vr = Program.VRList.Find(delegate (VirtualReader v) { return v.id == ip; });
+                var slave = Program.SlaveList.Find(delegate (SlaveReader s) { return s.id == ip; });
                 if (index < 0) return;
 
                 if (!Program.Readers[index].started)
@@ -1468,6 +1556,12 @@ namespace MDW_wf
                     VirtualReader vr = new VirtualReader(ip);
                     vr.alias = alias;
                     Program.VRList.Add(vr);
+                }
+                else if (model.ToLower() == "remoto")
+                {
+                    SlaveReader slave = new SlaveReader(ip, serverTags);
+                    slave.alias = alias;
+                    Program.SlaveList.Add(slave);
                 }
 
                 tbAddIP.Text = "";
@@ -1604,9 +1698,11 @@ namespace MDW_wf
             if (Program.configManager.SocketIP == "") return;
             if(cbPublishWebSocket.Checked)
             {
-                socketClient = new SocketClient(Program.configManager.SocketIP, Program.configManager.SocketPort);
+                //socketClient = new SocketClient(Program.configManager.SocketIP, Program.configManager.SocketPort);
+                socketClient = new SocketClient(tbTestIp.Text, Convert.ToInt32(tbTestPort.Text));
+                //socketClient = new SocketClient("192.168.169.5",503);
                 socketClient.Start();
-                socketClient.ReceiveMessages();
+                //socketClient.ReceiveMessages();
             }
             else
             {
@@ -1621,5 +1717,7 @@ namespace MDW_wf
             lbServiceUser.Visible = rbVersion1.Checked;
             tbServiceUser.Visible = rbVersion1.Checked;
         }
+
+       
     }
 }

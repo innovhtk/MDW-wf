@@ -22,6 +22,7 @@ namespace MDW_wf
         public static List<HighLevelInterface> CS203List = new List<HighLevelInterface>();
         public static List<HTKLibrary.Readers.CS101> CS101List = new List<CS101>();
         public static List<VirtualReader> VRList = new List<VirtualReader>();
+        public static List<SlaveReader> SlaveList = new List<SlaveReader>();
         public static List<ReaderModel> Readers = new List<ReaderModel>();
         public static string applicationSettings = "application.config";
         public static appSettings appSetting = new appSettings();
