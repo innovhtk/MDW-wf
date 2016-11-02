@@ -2127,6 +2127,7 @@
             this.cbGPO1.Text = "GPO1";
             this.cbGPO1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbGPO1.UseVisualStyleBackColor = false;
+            this.cbGPO1.CheckedChanged += new System.EventHandler(this.cbGPO1_CheckedChanged);
             // 
             // cbActuators
             // 
@@ -2147,6 +2148,7 @@
             this.cbActuators.Text = "Actuadores";
             this.cbActuators.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbActuators.UseVisualStyleBackColor = false;
+            this.cbActuators.CheckedChanged += new System.EventHandler(this.cbActuators_CheckedChanged);
             // 
             // cbGPO0
             // 
@@ -2167,6 +2169,7 @@
             this.cbGPO0.Text = "GPO0";
             this.cbGPO0.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbGPO0.UseVisualStyleBackColor = false;
+            this.cbGPO0.CheckedChanged += new System.EventHandler(this.cbGPO0_CheckedChanged);
             // 
             // tableLayoutPanel6
             // 

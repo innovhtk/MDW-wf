@@ -102,6 +102,12 @@ namespace MDW_wf
                     CS203.Name = Program.Readers[i].ip;
                     Program.CS203List.Add(CS203);
                 }
+                if (Program.Readers[i].model.ToLower() == "cs469")
+                {
+                    HighLevelInterface CS203 = new HighLevelInterface();
+                    CS203.Name = Program.Readers[i].ip;
+                    Program.CS203List.Add(CS203);
+                }
                 if (Program.Readers[i].model.ToLower() == "cs101")
                 {
                     CS101 cs101 = new CS101(Program.Readers[i].ip);
@@ -406,6 +412,19 @@ namespace MDW_wf
                         Program.Readers[index].connected = true;
                         AttachCallback(true, ip);
                     }
+                    if (Program.Readers[index].model.ToLower() == "cs469" && reader != null)
+                    {
+                        CSLibrary.Constants.Result ret = CSLibrary.Constants.Result.OK;
+                        int time = Environment.TickCount;
+                        if ((ret = reader.Connect(ip, 20000)) != CSLibrary.Constants.Result.OK)
+                        {
+                            reader.Disconnect();
+                            Program.Readers[index].connected = false;
+                            return;
+                        }
+                        Program.Readers[index].connected = true;
+                        AttachCallback(true, ip);
+                    }
                 }
                 if (Program.Readers[index].model.ToLower() == "cs101" && handheld != null)
                 {
@@ -486,7 +505,7 @@ namespace MDW_wf
                         }
                         reader.StartOperation(Operation.TAG_GENERALSELECTED, true);
                     }
-                    if (Program.Readers[index].model.ToLower() == "cs203" && (
+                    if ((Program.Readers[index].model.ToLower() == "cs203" || Program.Readers[index].model.ToLower() == "cs469") && (
                   tgPort1.Checked ||
                   tgPort2.Checked ||
                   tgPort3.Checked ||
@@ -674,7 +693,7 @@ namespace MDW_wf
         public void Stop(string ip)
         {
             var index = Program.Readers.FindIndex(r => r.ip == ip);
-            if (Program.Readers[index].model.ToLower() == "cs203")
+            if (Program.Readers[index].model.ToLower() == "cs203" || Program.Readers[index].model.ToLower() == "cs469")
             {
                 var reader = Program.CS203List.Find(delegate (HighLevelInterface h) { return h.Name == ip || h.IPAddress == ip; });
                 if (reader.State == RFState.BUSY)
@@ -735,7 +754,7 @@ namespace MDW_wf
         #region Event Callback
         private void Reset(string ip)
         {
-            var index = Program.Readers.FindIndex(r => r.ip == ip && r.model.ToLower() == "cs203");
+            var index = Program.Readers.FindIndex(r => r.ip == ip && (r.model.ToLower() == "cs203" || r.model.ToLower() == "cs469"));
             var reader = Program.CS203List.Find(delegate (HighLevelInterface h) { return h.Name == ip || h.IPAddress == ip; });
             Result rc = Result.OK;
 
@@ -789,7 +808,7 @@ namespace MDW_wf
         void ReaderXP_StateChangedEvent(object sender, CSLibrary.Events.OnStateChangedEventArgs e)
         {
             string ip = ((HighLevelInterface)sender).IPAddress;
-            var index = Program.Readers.FindIndex(r => r.ip == ip && r.model.ToLower() == "cs203");
+            var index = Program.Readers.FindIndex(r => r.ip == ip && (r.model.ToLower() == "cs203" || r.model.ToLower() == "cs469" ));
             try
             {
                 if (this.InvokeRequired)
@@ -1012,7 +1031,7 @@ namespace MDW_wf
         }
         private void AttachCallback(bool en, string ip)
         {
-            var index = Program.Readers.FindIndex(r => r.ip == ip && r.model.ToLower() == "cs203");
+            var index = Program.Readers.FindIndex(r => r.ip == ip && (r.model.ToLower() == "cs203"|| r.model.ToLower() == "cs469"));
             var reader = Program.CS203List.Find(delegate (HighLevelInterface h) { return h.Name == ip || h.IPAddress == ip; });
             if (en)
             {
@@ -1474,7 +1493,7 @@ namespace MDW_wf
                     var model = subitem.Split(',')[0].Trim();
                     var alias = subitem.Split(',')[1].Trim();
 
-                    var index = Program.Readers.FindIndex(r => r.ip == ip && r.model.ToLower() == "cs203");
+                    var index = Program.Readers.FindIndex(r => r.ip == ip && (r.model.ToLower() == "cs203" || r.model.ToLower() == "cs469"));
                     var reader = Program.CS203List.Find(delegate (HighLevelInterface h) { return h.Name == ip || h.IPAddress == ip; });
                     if (index < 0) return;
 
@@ -1544,6 +1563,12 @@ namespace MDW_wf
                     HighLevelInterface CS203 = new HighLevelInterface();
                     CS203.Name = ip;
                     Program.CS203List.Add(CS203);
+                }
+                else if (model.ToLower() == "cs469")
+                {
+                    HighLevelInterface CS469 = new HighLevelInterface();
+                    CS469.Name = ip;
+                    Program.CS203List.Add(CS469);
                 }
                 else if(model.ToLower() == "cs101")
                 {
@@ -1718,6 +1743,49 @@ namespace MDW_wf
             tbServiceUser.Visible = rbVersion1.Checked;
         }
 
-       
+        private void cbActuators_CheckedChanged(object sender, EventArgs e)
+        {
+            cbGPO0.Enabled = !cbGPO0.Enabled;
+            cbGPO1.Enabled = !cbGPO1.Enabled;
+        }
+
+        private void cbGPO0_CheckedChanged(object sender, EventArgs e)
+        {
+            if (lvReaders.SelectedItems.Count > 0)
+            {
+                var ip = lvReaders.SelectedItems[0].Text;
+                var subitem = lvReaders.SelectedItems[0].SubItems[1].Text;
+                var model = subitem.Split(',')[0].Trim();
+                var alias = subitem.Split(',')[1].Trim();
+
+                var index = Program.Readers.FindIndex(r => r.ip == ip);
+                //var reader = Program.CS203List.Find(delegate (HighLevelInterface h) { return h.Name == ip || h.IPAddress == ip; });
+                if (index < 0) return;
+
+                if (!Program.Readers[index].started)
+                {
+                    CS203.SetGPO0(Program.Readers[index].ip, cbGPO0.Checked);
+                }
+            }
+        }
+        private void cbGPO1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (lvReaders.SelectedItems.Count > 0)
+            {
+                var ip = lvReaders.SelectedItems[0].Text;
+                var subitem = lvReaders.SelectedItems[0].SubItems[1].Text;
+                var model = subitem.Split(',')[0].Trim();
+                var alias = subitem.Split(',')[1].Trim();
+
+                var index = Program.Readers.FindIndex(r => r.ip == ip);
+                //var reader = Program.CS203List.Find(delegate (HighLevelInterface h) { return h.Name == ip || h.IPAddress == ip; });
+                if (index < 0) return;
+
+                if (!Program.Readers[index].started)
+                {
+                    CS203.SetGPO1(Program.Readers[index].ip, cbGPO1.Checked);
+                }
+            }
+        }
     }
 }

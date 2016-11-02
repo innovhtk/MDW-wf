@@ -101,7 +101,33 @@
       <boolean>false</boolean>
       <boolean>false</boolean>
     </ports>
+    <connected>false</connected>
+    <started>false</started>
+  </ReaderModel>
+  <ReaderModel>
+    <ip>192.168.2.203</ip>
+    <alias>cs203</alias>
+    <model>CS203</model>
+    <power>300</power>
+    <ports>
+      <boolean>true</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+    </ports>
     <connected>true</connected>
-    <started>true</started>
+    <started>false</started>
   </ReaderModel>
 </ArrayOfReaderModel>
