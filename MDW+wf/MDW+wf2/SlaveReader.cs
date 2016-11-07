@@ -43,6 +43,7 @@ namespace MDW_wf
             List<HTKLibrary.Readers.Tag> fromReader = new List<HTKLibrary.Readers.Tag>();
             foreach (HTKLibrary.Readers.Tag tag in tags)
             {
+                tag.IP = id;
                 if (tag.IP == id)
                 {
                     fromReader.Add(tag);
