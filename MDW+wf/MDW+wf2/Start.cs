@@ -177,7 +177,7 @@ namespace MDW_wf
                .Select(a => a.Address.ToString())
                .ToList();
             if (address.Count > 0)
-                lbToolbarIP.Invoke(new MethodInvoker(delegate { lbToolbarIPWifi.Text = addresswifi[0]; }));
+                lbToolbarIP.Invoke(new MethodInvoker(delegate { lbToolbarIPWifi.Text = addresswifi.Count > 0 ? addresswifi[0] : "127.0.0.1"; }));
 
             lbToolbarReaders.Invoke(new MethodInvoker(delegate { lbToolbarReaders.Text = (Program.CS203List.Count + Program.CS101List.Count).ToString(); }));
 

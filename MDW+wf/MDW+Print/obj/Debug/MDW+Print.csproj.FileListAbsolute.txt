@@ -37,3 +37,15 @@ C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW-wf\MDW+wf\MDW+Print\o
 C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW-wf\MDW+wf\MDW+Print\obj\Debug\MDW+Print.csproj.GenerateResource.Cache
 C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW-wf\MDW+wf\MDW+Print\obj\Debug\MDW+Print.exe
 C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW-wf\MDW+wf\MDW+Print\obj\Debug\MDW+Print.pdb
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+Print\obj\Debug\MDW+Print.csprojResolveAssemblyReference.cache
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+Print\obj\Debug\MDW+Print.csproj.ResolveComReference.cache
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+Print\obj\Debug\MDW_Print.Login.resources
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+Print\obj\Debug\MDW_Print.Print.resources
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+Print\obj\Debug\MDW_Print.Properties.Resources.resources
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+Print\obj\Debug\MDW+Print.csproj.GenerateResource.Cache
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+Print\obj\Debug\MDW+Print.exe
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+Print\obj\Debug\MDW+Print.pdb
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\bin\Debug\MDW+Print.exe.config
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\bin\Debug\MDW+Print.exe
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\bin\Debug\MDW+Print.pdb
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+Print\obj\Debug\Interop.NiceLabel5WR.dll

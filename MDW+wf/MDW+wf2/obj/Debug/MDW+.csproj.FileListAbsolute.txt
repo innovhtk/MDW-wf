@@ -70,3 +70,25 @@ C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW-wf\MDW+wf\MDW+wf2\bin
 C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW-wf\MDW+wf\MDW+wf2\bin\Debug\ES\System.Data.SqlServerCe.resources.dll
 C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW-wf\MDW+wf\MDW+wf2\obj\Debug\MDW+wf.exe.manifest
 C:\Users\Eleazar\Documents\Visual Studio 2015\Projects\MDW-wf\MDW+wf\MDW+wf2\obj\Debug\MDW+wf.application
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\bin\Debug\MDW+wf.exe.config
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\obj\Debug\MDW+wf.exe
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\obj\Debug\MDW+wf.pdb
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\bin\Debug\MDW+wf.exe.manifest
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\bin\Debug\MDW+wf.application
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\bin\Debug\MDW+wf.exe
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\bin\Debug\MDW+wf.pdb
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\bin\Debug\HTKLibrary.Classes.Net35.pdb
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\bin\Debug\HTKLibrary.Comunications.Net35.pdb
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\bin\Debug\HTKLibrary.Readers.pdb
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\bin\Debug\ES\System.Data.SqlServerCe.resources.dll
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\obj\Debug\MDW+.csprojResolveAssemblyReference.cache
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\obj\Debug\MDW_wf.Control.Custom.SortListView.resources
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\obj\Debug\MDW_wf.Login.resources
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\obj\Debug\MDW_wf.Start.resources
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\obj\Debug\MDW_wf.Properties.Resources.resources
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\obj\Debug\MDW+.csproj.GenerateResource.Cache
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\obj\Debug\MDW+wf.exe.manifest
+C:\Users\Administrador\Documents\HTK\MDW-wf\MDW+wf\MDW+wf2\obj\Debug\MDW+wf.application
