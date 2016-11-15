@@ -33,6 +33,7 @@ namespace MDW_wf.Connectivity
         public void Start()
         {
             Console.WriteLine("Setting up server...");
+            Logger.WriteLog("Iniciando servidor socket GPIO");
             _serverSocket.Bind(new IPEndPoint(IPAddress.Any, _port));
             _serverSocket.Listen(5);
             _serverSocket.BeginAccept(new AsyncCallback(AcceptCallback), null);
@@ -43,6 +44,7 @@ namespace MDW_wf.Connectivity
             System.Net.Sockets.Socket socket = _serverSocket.EndAccept(AR);
             _clientSockets.Add(socket);
             Console.WriteLine("Client connected");
+            Logger.WriteLog("Cliente socket GPIO connectado");
             socket.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), socket);
             _serverSocket.BeginAccept(new AsyncCallback(AcceptCallback), null);
         }
@@ -81,17 +83,21 @@ namespace MDW_wf.Connectivity
 
         private void GPO(object obj)
         {
-            string sgpio = (string)obj;
-            GPIO gpio = new GPIO(sgpio);
-            OnGPIOSignal(gpio);
-            CS203.SetGPO0(gpio.ip, gpio.gpio0);
-            CS203.SetGPO1(gpio.ip, gpio.gpio1);
-            Thread.Sleep(1000);
-            CS203.SetGPO0(gpio.ip, false);
-            CS203.SetGPO1(gpio.ip, false);
-            gpio.gpio0 = false;
-            gpio.gpio1 = false;
-            OnGPIOSignal(gpio);
+            try
+            {
+                string sgpio = (string)obj;
+                GPIO gpio = new GPIO(sgpio);
+                OnGPIOSignal(gpio);
+                CS203.SetGPO0(gpio.ip, gpio.gpio0);
+                CS203.SetGPO1(gpio.ip, gpio.gpio1);
+                Thread.Sleep(1000);
+                CS203.SetGPO0(gpio.ip, false);
+                CS203.SetGPO1(gpio.ip, false);
+                gpio.gpio0 = false;
+                gpio.gpio1 = false;
+                OnGPIOSignal(gpio);
+            }
+            catch { }
         }
 
         private void SendCallback(IAsyncResult AR)

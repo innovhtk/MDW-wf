@@ -25,6 +25,7 @@ namespace MDW_wf.Connectivity
         {
             var ipAddres = get_IP();
             Console.WriteLine("Configurando servidor en " + ipAddres + "...");
+            Logger.WriteLog("Configurando servidor de sockets en " + ipAddres + "...");
             _serverSocket.Bind(new IPEndPoint(ipAddres, _port));
             _serverSocket.Listen(5);
             _serverSocket.BeginAccept(new AsyncCallback(AcceptCallback), null);
@@ -48,6 +49,7 @@ namespace MDW_wf.Connectivity
             System.Net.Sockets.Socket socket = _serverSocket.EndAccept(AR);
             _clientSockets.Add(socket);
             Console.WriteLine("Client connected");
+            Logger.WriteLog("Socket cliente conectado");
             socket.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.None, new AsyncCallback(ReceiveCallback), socket);
             _serverSocket.BeginAccept(new AsyncCallback(AcceptCallback), null);
         }
@@ -80,6 +82,7 @@ namespace MDW_wf.Connectivity
             catch (Exception)
             {
                 Console.WriteLine("Connection lost");
+                Logger.WriteLog("Conexión de socket perdida");
                 _serverSocket.BeginAccept(new AsyncCallback(AcceptCallback), null);
             }
         }

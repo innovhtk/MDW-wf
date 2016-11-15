@@ -17,13 +17,14 @@ namespace MDW_wf.Connectivity
         public static string Password = "";
         public static void Write(HTKLibrary.Classes.MDW.Tag tag)
         {
-            Server = Program.configManager.SQLServer;
-            DataBase = Program.configManager.SQLDatabase;
-            User = Program.configManager.SQLUser;
-            Password = Program.configManager.SQLPassword;
-            if (Server == "" || DataBase == "" || User == "" || Password == "") return;
+           
             try
             {
+                Server = Program.configManager.SQLServer;
+                DataBase = Program.configManager.SQLDatabase;
+                User = Program.configManager.SQLUser;
+                Password = Program.configManager.SQLPassword;
+                if (Server == "" || DataBase == "" || User == "" || Password == "") return;
                 using (SqlConnection openCon = new SqlConnection("Data Source=" + Server + ";Initial Catalog=" + DataBase + ";User ID=" + User + ";Password=" + Password))
                 {
                     string saveStaff = "INSERT into TagList (TIMESTAMP,IP,EPC,RSSI,DIRECCION) VALUES (@timestamp,@ip,@epc,@rssi,@direccion)";
@@ -42,7 +43,7 @@ namespace MDW_wf.Connectivity
                     }
                 }
             }
-            catch { }
+            catch { Logger.WriteLog("Error de escritura SQL"); }
           
         }
 

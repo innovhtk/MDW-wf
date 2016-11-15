@@ -53,8 +53,8 @@
     <started>false</started>
   </ReaderModel>
   <ReaderModel>
-    <ip>192.168.1.67</ip>
-    <alias>remoto</alias>
+    <ip>195.0.3.16</ip>
+    <alias>MAT_PRIMAS</alias>
     <model>Remoto</model>
     <power>300</power>
     <ports>
@@ -79,8 +79,8 @@
     <started>false</started>
   </ReaderModel>
   <ReaderModel>
-    <ip>192.168.2.24</ip>
-    <alias>remoto</alias>
+    <ip>195.0.3.37</ip>
+    <alias>PT</alias>
     <model>Remoto</model>
     <power>300</power>
     <ports>
@@ -104,10 +104,10 @@
     <connected>false</connected>
     <started>false</started>
   </ReaderModel>
-  <ReaderModel>
-    <ip>192.168.2.203</ip>
-    <alias>cs203</alias>
-    <model>CS203</model>
+<ReaderModel>
+    <ip>195.0.3.13</ip>
+    <alias>EMBARQUES</alias>
+    <model>Remoto</model>
     <power>300</power>
     <ports>
       <boolean>true</boolean>
@@ -127,7 +127,33 @@
       <boolean>false</boolean>
       <boolean>false</boolean>
     </ports>
-    <connected>true</connected>
+    <connected>false</connected>
+    <started>false</started>
+  </ReaderModel>
+<ReaderModel>
+    <ip>195.0.3.29</ip>
+    <alias>OKO</alias>
+    <model>Remoto</model>
+    <power>300</power>
+    <ports>
+      <boolean>true</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+    </ports>
+    <connected>false</connected>
     <started>false</started>
   </ReaderModel>
 </ArrayOfReaderModel>

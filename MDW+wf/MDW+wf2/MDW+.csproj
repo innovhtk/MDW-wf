@@ -112,6 +112,7 @@
   <ItemGroup>
     <Compile Include="appSettings.cs" />
     <Compile Include="Connectivity\Encription.cs" />
+    <Compile Include="Connectivity\Logger.cs" />
     <Compile Include="Connectivity\Publish.cs" />
     <Compile Include="Connectivity\ServerGPIO.cs" />
     <Compile Include="Connectivity\ServerTags.cs" />

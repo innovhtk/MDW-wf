@@ -76,8 +76,12 @@ namespace MDW_wf
 
         private void ServerGpio_GPIOSignal(GPIO gpio)
         {
-            cbGPO0.Invoke((MethodInvoker)(() => cbGPO0.Checked = gpio.gpio0));
-            cbGPO1.Invoke((MethodInvoker)(() => cbGPO1.Checked = gpio.gpio1));
+            try
+            {
+                cbGPO0.Invoke((MethodInvoker)(() => cbGPO0.Checked = gpio.gpio0));
+                cbGPO1.Invoke((MethodInvoker)(() => cbGPO1.Checked = gpio.gpio1));
+            }
+            catch { }
         }
 
         private void Start_Load(object sender, EventArgs e)
@@ -219,7 +223,8 @@ namespace MDW_wf
         {
             //Tab.Invoke(new MethodInvoker(delegate { Tab.SelectedIndex = Tab_Print; }));
             lbStatus.Text = "Módulo de impresión";
-            string path = Program.configManager.AppPath + "\\MDW+Print.exe";
+            string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)
+                + "\\MDW+Print.exe";
             Process.Start(path);
         }
         private void btConfigurationTab_Click(object sender, EventArgs e)
@@ -757,7 +762,7 @@ namespace MDW_wf
             var index = Program.Readers.FindIndex(r => r.ip == ip && (r.model.ToLower() == "cs203" || r.model.ToLower() == "cs469"));
             var reader = Program.CS203List.Find(delegate (HighLevelInterface h) { return h.Name == ip || h.IPAddress == ip; });
             Result rc = Result.OK;
-
+            Logger.WriteLog("La antena " + ip +" entró en reset");
             if (this.InvokeRequired)
             {
                 this.BeginInvoke((System.Threading.ThreadStart)delegate ()
@@ -773,6 +778,7 @@ namespace MDW_wf
 
                         reader.StartOperation(Operation.TAG_RANGING, false);
 
+                    
                     /*
                                        if ((rc = Program.ReaderXP.Reconnect(10)) == Result.OK)
                                        {
@@ -792,6 +798,7 @@ namespace MDW_wf
                 });
             }
             //MessageForm.msgform.CloseForm();
+            Logger.WriteLog("La antena " + ip + " se ha reiniciado con éxito");
         }
 
         private delegate DialogResult ShowMsgDeleg(string msg);
@@ -818,12 +825,14 @@ namespace MDW_wf
                         switch (e.state)
                         {
                             case RFState.IDLE:
+                                Logger.WriteLog("La antena " + ip + " ha entrado en estado de reposo");
                                 EnableTimer(false);
                                 Program.Readers[index].started = false;
                                 if (mStop)
                                     this.Close();
                                 break;
                             case RFState.BUSY:
+                                Logger.WriteLog("La antena " + ip + " ha comenzado la lectura");
                                 EnableTimer(true);
                                 Program.Readers[index].started = true;
                                 totaltags = 0;
@@ -831,7 +840,7 @@ namespace MDW_wf
                             case RFState.RESET:
                                 {
                                     HighLevelInterface reader = (HighLevelInterface)(sender);
-
+                                    Logger.WriteLog("La antena " + ip + " entró en reset");
                                     while (true)
                                     {
                                         if (reader.Reconnect(1) == Result.OK)
@@ -839,6 +848,7 @@ namespace MDW_wf
 
                                         Thread.Sleep(1000);
                                     }
+                                    Logger.WriteLog("La antena " + ip + " se ha reiniciado con éxito");
                                 }
 
                             //Use other thread to create progress
@@ -848,8 +858,9 @@ namespace MDW_wf
 
                             break;
                             case RFState.ABORT:
-                            //ControlPanelForm.EnablePannel(false);
-                            Program.Readers[index].started = false;
+                                //ControlPanelForm.EnablePannel(false);
+                                Logger.WriteLog("La antena " + ip + " ha aboratado la operación");
+                                Program.Readers[index].started = false;
                                 break;
 
                             case RFState.ANT_CYCLE_END:
@@ -1056,35 +1067,40 @@ namespace MDW_wf
         public HTKLibrary.Classes.MDW.Tag lastTag = new HTKLibrary.Classes.MDW.Tag();
         private void Publish_ToPublish(object sender, HTKLibrary.Classes.MDW.Tag tag)
         {
-            if (cbPublishSQL.Checked)
+            try
             {
-                Connectivity.SQL.Write(tag);
-            }
-            if (cbPublishXML.Checked)
-            {
-                HTKLibrary.Comunications.Net35.DB.XML<HTKLibrary.Classes.MDW.Tag>.Write(tag,Program.configManager.XMLPath);
-            }
-            if (cbPublishCSV.Checked)
-            {
-                if(tag != lastTag)
-                    HTKLibrary.Comunications.Net35.DB.CSV.Write(tag, Program.configManager.CSVPath);
-            }
-            if(cbPublishWebService.Checked)
-            {
-                //if(rbVersion2.Checked)
-                //{
+                if (cbPublishSQL.Checked)
+                {
+                    Connectivity.SQL.Write(tag);
+                }
+                if (cbPublishXML.Checked)
+                {
+                    HTKLibrary.Comunications.Net35.DB.XML<HTKLibrary.Classes.MDW.Tag>.Write(tag, Program.configManager.XMLPath);
+                }
+                if (cbPublishCSV.Checked)
+                {
+                    if (tag != lastTag)
+                        HTKLibrary.Comunications.Net35.DB.CSV.Write(tag, Program.configManager.CSVPath);
+                }
+                if (cbPublishWebService.Checked)
+                {
+                    //if(rbVersion2.Checked)
+                    //{
                     restClient.AddTag(tag);
-                //}
-                //if (rbVersion1.Checked)
-                //{
-                //    legacyRestClient.PostData = JsonConvert.SerializeObject(new LegacyTag(tag.epc, tag.rssi.ToString(), tag.ip, tbServiceUser.Text,5, "-1", tag.timestamp));
-                //    legacyRestClient.MakeRequest("/api/Tags");
-                //}
+                    //}
+                    //if (rbVersion1.Checked)
+                    //{
+                    //    legacyRestClient.PostData = JsonConvert.SerializeObject(new LegacyTag(tag.epc, tag.rssi.ToString(), tag.ip, tbServiceUser.Text,5, "-1", tag.timestamp));
+                    //    legacyRestClient.MakeRequest("/api/Tags");
+                    //}
+                }
+                if (cbPublishWebSocket.Checked && socketClient.Connected)
+                {
+                    socketClient.SendMessage<HTKLibrary.Classes.MDW.Tag>(tag);
+                }
             }
-            if(cbPublishWebSocket.Checked && socketClient.Connected)
-            {
-                socketClient.SendMessage<HTKLibrary.Classes.MDW.Tag>(tag);
-            }
+            catch { }
+           
         }
 
         #endregion
@@ -1721,13 +1737,18 @@ namespace MDW_wf
         private void cbPublishWebSocket_CheckedChanged(object sender, EventArgs e)
         {
             if (Program.configManager.SocketIP == "") return;
+            if (string.IsNullOrEmpty(tbTestIp.Text) || string.IsNullOrEmpty(tbTestPort.Text)) return;
             if(cbPublishWebSocket.Checked)
             {
-                //socketClient = new SocketClient(Program.configManager.SocketIP, Program.configManager.SocketPort);
-                socketClient = new SocketClient(tbTestIp.Text, Convert.ToInt32(tbTestPort.Text));
-                //socketClient = new SocketClient("192.168.169.5",503);
-                socketClient.Start();
-                //socketClient.ReceiveMessages();
+                try
+                {
+                    //socketClient = new SocketClient(Program.configManager.SocketIP, Program.configManager.SocketPort);
+                    socketClient = new SocketClient(tbTestIp.Text, Convert.ToInt32(tbTestPort.Text));
+                    //socketClient = new SocketClient("192.168.169.5",503);
+                    socketClient.Start();
+                    //socketClient.ReceiveMessages();
+                }
+                catch { }
             }
             else
             {
